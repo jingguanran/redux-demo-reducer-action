@@ -3,6 +3,8 @@
     switch(action.type){
         case 'ADD':
         return [...state,action.item];
+        case "DES":
+        return state.filter(e=>e!==action.abc)
         default:
         return state
     }
@@ -17,6 +19,6 @@ function b(a=0,action){
 }
 
 export default combineReducers({
-    a:a,
-    b:b
+    a,
+    b
 })

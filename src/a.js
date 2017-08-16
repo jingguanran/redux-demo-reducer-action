@@ -10,3 +10,9 @@ export function addnum(){
         type:NUMADD
     }
 }
+export function des(abc){
+    return {
+        type:"DES",
+        abc
+    }
+}
