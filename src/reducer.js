@@ -1,23 +1,21 @@
- import {combineReducers} from 'redux'
- function a(state=[1,2,3],action){
+import {combineReducers} from 'redux'
+function a(state=[{id:1,title:"news1"},{id:2,title:"news2"}],action){
     switch(action.type){
-        case 'ADD':
-        return [...state,action.item];
-        case "DES":
-        return state.filter(e=>e!==action.abc)
+        case "SHOWDATA":
+        return action.data
+        case "ADD":
+        return [...state,action.item];//[1,2,3,4]
         default:
         return state
     }
 }
-function b(a=0,action){
+let s=[{id:1,title:"pinglun"},{id:2,title:"ding"}]
+function b(state=s,action){
     switch(action.type){
-        case "NUMADD":
-        return a+1;
         default:
-        return a
+        return state
     }
 }
-
 export default combineReducers({
     a,
     b

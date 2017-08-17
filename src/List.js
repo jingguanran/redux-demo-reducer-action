@@ -1,18 +1,22 @@
-import React from 'react'
-import * as action from './a'
+import React from 'react';
 import {connect} from 'react-redux'
-
+import * as action from './action'
 class List extends React.Component{
-    del(e){
-        this.props.des(e)
+    componentDidMount(){
+        this.props.post()
     }
     render(){
         return <div>
-            {this.props.data.map(e=><div>{e}<button onClick={this.del.bind(this,e)}>x</button></div>)}
+            {this.props.data.map(function(e){
+                    return <div>{e.title}</div>
+            })}
         </div>
     }
 }
-var jgr=(e)=>{
-    return {data:e.a}
+let jgr=(e)=>{
+    return {
+        data:e.a
+    }
 }
+
 export default connect(jgr,action)(List)

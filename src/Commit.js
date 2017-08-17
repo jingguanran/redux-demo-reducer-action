@@ -1,20 +1,22 @@
-import React from 'react'
-import * as action from './a'
+import React from 'react';
 import {connect} from 'react-redux'
+import * as action from './action'
 
-class List extends React.Component{
-    abc(){
-        this.props.add(this.refs.inpu.value)
-        
+class Commit extends React.Component{
+    submit(){
+        this.props.add(this.refs.inputValue.value)
     }
     render(){
         return <div>
-            <input ref="inpu" type="text"/>
-            <button onClick={this.abc.bind(this)}>+</button>
+            <input ref="inputValue" type="text"/>
+            <button onClick={this.submit.bind(this)}>+</button>
         </div>
     }
 }
-var jgr=(e)=>{
-    return {data:e.a}
+let jgr=(e)=>{
+    return {
+        data:e
+    }
 }
-export default connect(jgr,action)(List)
+
+export default connect(jgr,action)(Commit)
